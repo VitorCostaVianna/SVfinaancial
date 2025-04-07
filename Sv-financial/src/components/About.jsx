@@ -1,4 +1,4 @@
-import aboutImg from "../assets/about.png";
+import aboutImg from "../assets/about.webp";
 
 const About = () => {
   return (
@@ -31,6 +31,7 @@ const About = () => {
           <a
             href="#"
             className="inline-block bg-[#d08c65] text-[#fff7f8] px-8 py-4 rounded-full text-lg font-medium hover:bg-[#b67554] transition"
+            loading="lazy"
           >
             Saiba mais
           </a>
