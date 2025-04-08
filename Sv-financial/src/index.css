@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+  font-family: 'Grandis Extended', sans-serif;
+}
+
 @font-face {
     font-family: 'Grandis Extended';
     src: url('./assets/fonts/GrandisExtended-Regular.woff2') format('woff2');
