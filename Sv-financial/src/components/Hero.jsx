@@ -2,11 +2,11 @@ import HeroImg from "../assets/hero.webp";
 
 function Hero() {
   return (
-    <section className="bg-black py-20">
+    <section className="bg-black py-30">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center">
         {/* Texto à esquerda */}
         <div className="md:w-1/2 text-center md:text-left">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-[#fff7f8] mb-6">
+          <h1 className="text-4xl md:text-5xl font-grandis font-extrabold text-[#fff7f8] mb-6">
             Confiança e segurança para sua jornada financeira
           </h1>
           <p className="text-lg md:text-xl text-[#fff7f8] mb-8">

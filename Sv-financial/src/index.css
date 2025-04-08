@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: 'Grandis Extended';
+    src: url('./assets/fonts/GrandisExtended-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Grandis Extended';
+    src: url('./assets/fonts/GrandisExtended-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Grandis Extended';
+    src: url('./assets/fonts/GrandisExtended-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Grandis Extended';
+    src: url('./assets/fonts/GrandisExtended-ThinItalic.woff2') format('woff2');
+    font-weight: 100;
+    font-style: italic;
+  }
