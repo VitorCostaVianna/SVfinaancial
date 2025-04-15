@@ -1,4 +1,4 @@
-import HeroImg from "../assets/hero.webp"; 
+import HeroImg from "../assets/images/hero.webp"; 
 
 function Hero() {
   return (
@@ -13,10 +13,10 @@ function Hero() {
             Descubra como podemos ajudar você a alcançar seus objetivos financeiros com soluções personalizadas e suporte especializado.
           </p>
           <a
-            href="#cta"
-            className="bg-[#d08c65] text-[#fff7f8] px-8 py-4 rounded-full text-lg font-medium hover:bg-[#b67554] transition"
+           href="#cta"
+           className="bg-[#d08c65] text-[#fff7f8] px-8 py-4 rounded-full text-lg font-medium hover:bg-[#b67554] transition text-center block sm:inline-block sm:w-auto w-full"
           >
-            Agende sua primeira consultoria grátis
+           Agende sua primeira consultoria grátis
           </a>
         </div>
 

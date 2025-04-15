@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "swiper/swiper-bundle.css";
+
+/* Customização dos bullets do Swiper */
+.swiper-pagination-bullet {
+  @apply bg-[#1f1f1f] w-3 h-3 rounded-full opacity-50 transition-all;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-[#d08c65] opacity-100;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  @apply text-2xl;
+  @apply text-[#1f1f1f];
+  @apply font-bold;
+  @apply transition-colors;
+}
+
+.swiper-button-next:hover::after,
+.swiper-button-prev:hover::after {
+  @apply text-[#d08c65];
+}
