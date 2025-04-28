@@ -14,7 +14,6 @@ const Planejamento = () => {
     title: "Planejamento Financeiro", // Adicione o título desejado
     subtitle: "Organize suas finanças e alcance seus objetivos.", // Adicione o subtítulo desejado
     buttonText: "Começar Planejamento", // Adicione o texto do botão
-    buttonLink: "/planejamento/comecar", // Adicione o link do botão
     backgroundImage: backgroundImage,
   };
 
@@ -27,8 +26,7 @@ const Planejamento = () => {
         title="Objetivos financeiros que se tornam realidade"
         subtitle="Transforme planos em conquistas com organização e estratégia"
         buttonText="Comece seu plano financeiro"
-        buttonLink="#planejar"
-        backgroundColor="bg-[#fff7f8]"
+        backgroundColor="bg-[#ffffff]"
         textColor="text-[#000000]"
         goals={[
           {
@@ -68,7 +66,6 @@ const Planejamento = () => {
         title="Benefícios de um bom planejamento"
         subtitle="Organização financeira que traz tranquilidade e liberdade"
         buttonText="Inicie seu planejamento"
-        buttonLink="#planejar"
         backgroundColor="bg-gray-200"
         textColor="text-[#000000]"
         benefits={[
@@ -104,7 +101,6 @@ const Planejamento = () => {
         title="Permita-se viver o futuro financeiro que você sempre quis"
         subtitle="Estamos aqui para tornar isso possível. Transforme seu futuro financeiro com o acompanhamento da consultoria número 1 do Brasil."
         buttonText="Comece Agora"
-        buttonLink="/planejamento/comecar"
       />
       <hr className="border-t border-[#ffffff]" />
       <Footer />

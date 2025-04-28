@@ -10,7 +10,6 @@ const FinancialSolutionsSection = ({
   title = "Nossas Soluções",
   subtitle = "Os benefícios de se planejar financeiramente",
   buttonText = "Veja como funciona",
-  buttonLink = "#planejar",
   benefits = [],
   backgroundColor = "bg-gray-200",
   textColor = "text-[#000000]",
@@ -27,7 +26,7 @@ const FinancialSolutionsSection = ({
           </div>
 
           <div className="text-center">
-            <Button href={buttonLink} text={buttonText} />
+            <Button text={buttonText} />
           </div>
         </div>
 

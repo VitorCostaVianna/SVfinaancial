@@ -12,7 +12,6 @@ const FinancialGoalsSection = ({
   title = "Nossos diferenciais",
   subtitle = "Para cada objetivo, um caminho possível",
   buttonText = "Planeje seu futuro agora",
-  buttonLink = "#planejar",
   goals = [],
   backgroundColor = "bg-[#fff7f8]",
   textColor = "text-[#000000]",
@@ -34,7 +33,7 @@ const FinancialGoalsSection = ({
           </div>
 
           <div className="text-center">
-            <Button href={buttonLink} text={buttonText} />
+            <Button text={buttonText} />
           </div>
         </div>
 
@@ -75,12 +74,12 @@ const FinancialGoalsSection = ({
             <div className="swiper-pagination-custom flex justify-center space-x-2" />
             <div className="flex space-x-4">
               <button
-                className={`swiper-button-prev-custom w-10 h-10 rounded-full ${arrowBgColor} text-white flex items-center justify-center hover:bg-gray-400 transition`}
+                className={`swiper-button-prev-custom w-10 h-10 rounded-full ${arrowBgColor} text-white flex items-center justify-center hover:bg-gray-500 transition`}
               >
                 &#8592;
               </button>
               <button
-                className={`swiper-button-next-custom w-10 h-10 rounded-full ${arrowBgColor} text-white flex items-center justify-center hover:bg-gray-400 transition`}
+                className={`swiper-button-next-custom w-10 h-10 rounded-full ${arrowBgColor} text-white flex items-center justify-center hover:bg-gray-500 transition`}
               >
                 &#8594;
               </button>

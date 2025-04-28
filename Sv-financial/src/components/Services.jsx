@@ -1,31 +1,36 @@
-import { ShieldCheck, DollarSign, Headphones } from "lucide-react";
+import { Shield, BarChart2, Home } from "lucide-react"; // Ícones mais apropriados
 import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
-    icon: <ShieldCheck className="w-12 h-12 text-[#d08c65]" />,
-    title: "Segurança",
-    description: "Proteção total dos seus dados e movimentações financeiras.",
-    hoverText: "Proteja seu futuro financeiro com nossa tecnologia avançada.",
-    cta: "Entenda nossa segurança",
+    icon: <Shield className="w-12 h-12 text-[#d08c65]" />, // Ícone de escudo para Seguro de Vida
+    title: "Seguro de Vida",
+    description:
+      "Proteção financeira para você e sua família em momentos inesperados.",
+    hoverText:
+      "Garanta segurança e tranquilidade para quem mais importa na sua vida.",
+    cta: "/seguroDeVida",
     testimonials: [
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit. - João D.",
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit. - Maria S.",
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit. - Carlos T.",
+      "Me deu a tranquilidade que eu precisava. - João D.",
+      "Seguro prático e com excelente atendimento. - Maria S.",
+      "Ótimo custo-benefício para proteger minha família. - Carlos T.",
     ],
   },
   {
-    icon: <DollarSign className="w-12 h-12 text-[#d08c65]" />,
-    title: "Controle Financeiro",
-    description: "Gerencie investimentos e gastos com facilidade.",
-    cta: "Saiba mais",
+    icon: <BarChart2 className="w-12 h-12 text-[#d08c65]" />, // Ícone de gráfico para Planejamento Financeiro
+    title: "Planejamento Financeiro",
+    description:
+      "Gerencie investimentos e gastos com facilidade para alcançar seus objetivos.",
+    cta: "/planejamento",
   },
   {
-    icon: <Headphones className="w-12 h-12 text-[#d08c65]" />,
-    title: "lorem ipsum dolor sit amet",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    cta: "Saiba mais",
+    icon: <Home className="w-12 h-12 text-[#d08c65]" />, // Ícone de casa para Planejamento Patrimonial
+    title: "Planejamento Patrimonial",
+    description:
+      "Organize e proteja seu patrimônio para garantir um futuro mais seguro.",
+    cta: "/planejamentoPatrimonial",
   },
 ];
 
@@ -46,7 +51,7 @@ const Services = () => {
           Produtos e serviços
         </h2>
         <p className="text-xl font-bold text-[#fff7f8] opacity-80 mt-4 mb-12">
-          Tudo o que a XP oferece para você aproveitar as melhores oportunidades de investimentos
+          Tudo o que a SV Financial oferece para você aproveitar as melhores oportunidades!
         </p>
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
@@ -71,11 +76,11 @@ const Services = () => {
                   {service.hoverText}
                 </motion.p>
               )}
-              <a
-                href="#"
+              <Link
+                to={service.cta}
                 className="text-[#d08c65] font-medium hover:underline flex items-center justify-center"
               >
-                {service.cta}
+                Saiba mais
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -90,7 +95,7 @@ const Services = () => {
                     d="M9 5l7 7-7 7"
                   />
                 </svg>
-              </a>
+              </Link>
               {index === 0 && (
                 <div className="mt-6 text-[#d0d0d0] italic text-sm">
                   {services[0].testimonials[activeTestimonial]}

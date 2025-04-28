@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Button = ({ href, text }) => {
+const Button = ({ text }) => {
   return (
     <motion.a
-      href={href}
+      href="https://wa.me/message/HHQ6PYIIOYBAH1]"
       className="inline-flex items-center bg-[#d08c65] text-[#fff7f8] px-6 py-3 rounded-full text-lg font-medium hover:bg-[#b67554] transition"
       whileHover="hover"
       initial="rest"

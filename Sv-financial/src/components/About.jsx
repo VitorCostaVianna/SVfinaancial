@@ -27,7 +27,7 @@ const About = ({ backgroundColor = "bg-white", textColor = "text-[#1f1f1f]" }) =
             para você investir com confiança e autonomia.
           </p>
           <a
-            href="#"
+            href="https://wa.me/message/HHQ6PYIIOYBAH1"
             className="inline-block bg-[#d08c65] text-[#fff7f8] px-8 py-4 rounded-full text-lg font-medium hover:bg-[#b67554] transition"
           >
             Saiba mais

@@ -8,14 +8,13 @@ import FinancialBenefitsSection from '../components/FinancialSolutions';
 import { Home, Gift, Plane, Car } from "lucide-react";
 import About from '../components/About';
 import CallToAction from "../components/CallToAction";
-import backgroundImage from "../assets/images/fundoPlanejamento.webp";
+import backgroundImage from "../assets/images/bg2.webp";
 
 const Planejamento = () => {
     const heroProps = {
         title: "Planejamento Patrimonial e sucessório",
         subtitle: "Proteja seu patrimônio e planeje o futuro da sua família.",
         buttonText: "Começar Planejamento",
-        buttonLink: "/planejamento/comecar",
         backgroundImage: backgroundImage,
     };
 
@@ -28,8 +27,7 @@ const Planejamento = () => {
                 title="Preservar e Perpetuar"
                 subtitle="Estratégias sob medida para o seu legado"
                 buttonText="Personalize seu plano"
-                buttonLink="#planejar"
-                backgroundColor="bg-[#fff7f8]"
+                backgroundColor="bg-[#ffffff]"
                 textColor="text-[#000000]"
                 goals={[
                     {
@@ -74,7 +72,6 @@ const Planejamento = () => {
                 title="Diferenciais em Planejamento Patrimonial"
                 subtitle="Soluções estratégicas para proteger, organizar e perpetuar seu legado"
                 buttonText="Planeje seu futuro agora"
-                buttonLink="#planejar"
                 backgroundColor="bg-gray-200"
                 textColor="text-[#000000]"
                 benefits={[
@@ -122,7 +119,6 @@ const Planejamento = () => {
                 title="A jornada do seu legado começa aqui"
                 subtitle="Faça o primeiro movimento em direção a um futuro mais seguro e próspero. A Sv Financial está pronta para guiá-lo em cada passo do caminho."
                 buttonText="Comece Agora"
-                buttonLink="/planejamento/comecar"
             />
             <hr className="border-t border-[#ffffff]" />
             <Footer />

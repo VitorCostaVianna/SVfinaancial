@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-const CallToAction = ({ title, subtitle, buttonText, buttonLink }) => {
+const CallToAction = ({ title, subtitle, buttonText}) => {
   return (
     <section className="bg-white py-16">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
@@ -15,7 +15,7 @@ const CallToAction = ({ title, subtitle, buttonText, buttonLink }) => {
 
         {/* Botão reutilizável */}
         <div className="md:w-auto">
-          <Button href={buttonLink} text={buttonText} />
+          <Button text={buttonText} />
         </div>
       </div>
     </section>

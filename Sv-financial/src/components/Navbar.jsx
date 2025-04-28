@@ -1,7 +1,8 @@
+/* components/Navbar.jsx */
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoImg from "../assets/images/logo.webp";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -16,7 +17,7 @@ const Navbar = () => {
   };
 
   const dropdownVariants = {
-    hidden: { opacity: 0, y: -10 },
+    hidden: { opacity: 0, y: -2 },
     visible: { opacity: 1, y: 0 },
   };
 
@@ -28,12 +29,11 @@ const Navbar = () => {
   return (
     <header className="bg-[#000000] shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
         <div className="flex items-center">
           <img src={logoImg} alt="Logo SV Financial" className="h-20 w-auto" />
         </div>
 
-        {/* Ícone do Menu Hambúrguer (Mobile) */}
+        {/* Mobile Menu Button */}
         <div className="lg:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -46,18 +46,15 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Navegação Tradicional (Desktop) */}
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-6">
-          {/* Soluções */}
+          {/* Soluções Dropdown */}
           <div
             className="relative"
             onMouseEnter={() => handleMouseEnter("solucoes")}
             onMouseLeave={handleMouseLeave}
           >
-            <a
-              href="#solucoes"
-              className="text-[#fff7f8] font-medium relative"
-            >
+            <a href="#solucoes" className="text-[#fff7f8] font-medium relative">
               Soluções
             </a>
             <AnimatePresence>
@@ -67,78 +64,80 @@ const Navbar = () => {
                   animate="visible"
                   exit="hidden"
                   variants={dropdownVariants}
-                  className="absolute left-0 top-full bg-[#1f1f1f] shadow-md border-t border-[#d08c65] p-6 grid grid-cols-2 gap-6 w-[600px]"
+                  className="absolute left-0 top-full bg-[#1f1f1f] shadow-md border-t border-[#d08c65] p-6 mt-0 min-w-[500px] max-w-full"
                 >
-                  <div>
-                    <h3 className="font-semibold text-[#d08c65] mb-2">
-                      Para Você
-                    </h3>
-                    <ul className="space-y-2">
-                      <li>
-                        <Link to="/seguroDeVida" className="block text-[#fff7f8] hover:text-[#d08c65]">
-                          Seguro de Vida e Acidentes Pessoais
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/planejamentoPatrimonial" className="block text-[#fff7f8] hover:text-[#d08c65]">
-                          Planejamento Patrimonial e Sucessório
-                        </Link>
-                      </li>
-
-                      <li>
-                      <Link to="/planejamento" className="block text-[#fff7f8] hover:text-[#d08c65]">
-                        Planejamento Financeiro
-                      </Link>
-                      </li>
-
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[#d08c65] mb-2">
-                      Para Empresas
-                    </h3>
-                    <ul className="space-y-2">
-                      <li>
-                        <a
-                          href="#empresas-vida"
-                          className="block text-[#fff7f8] hover:text-[#d08c65]"
-                        >
-                          Seguro de Vida e Acidentes Pessoais
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#empresas-odontologico"
-                          className="block text-[#fff7f8] hover:text-[#d08c65]"
-                        >
-                          Planos Odontológicos
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#grandes-empresas"
-                          className="block text-[#fff7f8] hover:text-[#d08c65]"
-                        >
-                          Grandes Empresas
-                        </a>
-                      </li>
-                    </ul>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-semibold text-[#d08c65] mb-2">Para Você</h3>
+                      <ul className="space-y-2">
+                        <li>
+                          <Link
+                            to="/seguroDeVida"
+                            className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
+                          >
+                            Seguro de Vida e Acidentes Pessoais
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/planejamentoPatrimonial"
+                            className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
+                          >
+                            Planejamento Patrimonial e Sucessório
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/planejamento"
+                            className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
+                          >
+                            Planejamento Financeiro
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-[#d08c65] mb-2">Para Empresas</h3>
+                      <ul className="space-y-2">
+                        <li>
+                        <Link
+                            to="/seguroDeVidaEmpresa"
+                            className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
+                          >
+                            Seguro de Vida e Acidentes pessoais PME
+                          </Link>
+                        </li>
+                        <li>
+                          <a
+                            href="#empresas-odontologico"
+                            className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
+                          >
+                            Planos Odontológicos
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#grandes-empresas"
+                            className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
+                          >
+                            Grandes Empresas
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
 
-          {/* Suporte */}
+          {/* Suporte Dropdown */}
           <div
             className="relative"
             onMouseEnter={() => handleMouseEnter("suporte")}
             onMouseLeave={handleMouseLeave}
           >
-            <a
-              href="#suporte"
-              className="text-[#fff7f8] font-medium relative"
-            >
+            <a href="#suporte" className="text-[#fff7f8] font-medium relative">
               Suporte
             </a>
             <AnimatePresence>
@@ -148,21 +147,21 @@ const Navbar = () => {
                   animate="visible"
                   exit="hidden"
                   variants={dropdownVariants}
-                  className="absolute left-0 top-full bg-[#1f1f1f] shadow-md border-t border-[#d08c65] p-6 w-[300px]"
+                  className="absolute left-0 top-full bg-[#1f1f1f] shadow-md border-t border-[#d08c65] p-6 mt-0 min-w-[250px] max-w-full"
                 >
                   <ul className="space-y-2">
                     <li>
-                      <a
-                        href="#faq"
-                        className="block text-[#fff7f8] hover:text-[#d08c65]"
+                      <Link
+                        to="/duvidasFrequentes"
+                        className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
                       >
-                        FAQ
-                      </a>
+                        Dúvidas Frequentes
+                      </Link>
                     </li>
                     <li>
                       <a
-                        href="#contato"
-                        className="block text-[#fff7f8] hover:text-[#d08c65]"
+                        href="https://wa.me/message/HHQ6PYIIOYBAH1"
+                        className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
                       >
                         Fale Conosco
                       </a>
@@ -173,16 +172,13 @@ const Navbar = () => {
             </AnimatePresence>
           </div>
 
-          {/* Sobre Nós */}
+          {/* Sobre Nós Dropdown */}
           <div
             className="relative"
             onMouseEnter={() => handleMouseEnter("sobre-nos")}
             onMouseLeave={handleMouseLeave}
           >
-            <a
-              href="#sobre-nos"
-              className="text-[#fff7f8] font-medium relative"
-            >
+            <a href="#sobre-nos" className="text-[#fff7f8] font-medium relative">
               Sobre Nós
             </a>
             <AnimatePresence>
@@ -192,13 +188,13 @@ const Navbar = () => {
                   animate="visible"
                   exit="hidden"
                   variants={dropdownVariants}
-                  className="absolute left-0 top-full bg-[#1f1f1f] shadow-md border-t border-[#d08c65] p-6 w-[300px]"
+                  className="absolute left-0 top-full bg-[#1f1f1f] shadow-md border-t border-[#d08c65] p-6 mt-0 min-w-[250px] max-w-full"
                 >
                   <ul className="space-y-2">
                     <li>
                       <a
                         href="#historia"
-                        className="block text-[#fff7f8] hover:text-[#d08c65]"
+                        className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
                       >
                         Nossa História
                       </a>
@@ -206,7 +202,7 @@ const Navbar = () => {
                     <li>
                       <a
                         href="#valores"
-                        className="block text-[#fff7f8] hover:text-[#d08c65]"
+                        className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
                       >
                         Valores
                       </a>
@@ -219,7 +215,7 @@ const Navbar = () => {
         </nav>
       </div>
 
-      {/* Menu Mobile */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
