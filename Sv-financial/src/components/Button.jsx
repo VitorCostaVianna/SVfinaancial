@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Button = ({ text }) => {
   return (
     <motion.a
-      href="https://wa.me/message/HHQ6PYIIOYBAH1]"
+      href="https://wa.me/5531999618881"
       className="inline-flex items-center bg-[#d08c65] text-[#fff7f8] px-6 py-3 rounded-full text-lg font-medium hover:bg-[#b67554] transition"
       whileHover="hover"
       initial="rest"

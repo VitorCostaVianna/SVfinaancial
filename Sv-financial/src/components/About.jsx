@@ -17,15 +17,15 @@ const About = ({ backgroundColor = "bg-white", textColor = "text-[#1f1f1f]" }) =
         <div className={`md:w-1/2 text-left ${textColor}`}>
           <h2 className="text-4xl font-extrabold mb-6">Quem Somos</h2>
           <p className="text-lg mb-6">
-            Somos uma empresa comprometida com a transformação financeira
-            digital. Nosso objetivo é tornar os investimentos acessíveis e
-            seguros para todos, com tecnologia de ponta e atendimento
-            humanizado.
+            A SV Financial é uma empresa especializada em soluções de proteção e planejamento financeiro. Atuamos nos segmentos de seguro de vida, seguro empresarial, gestão de riscos e planejamento patrimonial, oferecendo serviços personalizados para pessoas físicas e empresas.
           </p>
           <p className="text-lg mb-6">
-            Com anos de experiência no mercado, oferecemos soluções completas
-            para você investir com confiança e autonomia.
+            Nosso compromisso é cuidar do que realmente importa: a segurança, o patrimônio e o futuro dos nossos clientes. Com expertise de mercado e atendimento consultivo, desenvolvemos estratégias sob medida para proteger e valorizar o que você conquistou.
           </p>
+          <p className="text-lg mb-6">
+            Mais do que seguros, entregamos tranquilidade, previsibilidade e proteção para você, sua família e seu negócio.
+          </p>
+
           <a
             href="https://wa.me/message/HHQ6PYIIOYBAH1"
             className="inline-block bg-[#d08c65] text-[#fff7f8] px-8 py-4 rounded-full text-lg font-medium hover:bg-[#b67554] transition"

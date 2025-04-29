@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -43,18 +44,93 @@ function App() {
         "Sim! Oferecemos planos personalizados para pessoas físicas, empresas de pequeno, médio e grande porte, com soluções adaptadas para cada necessidade.",
     },
   ];
-  
+
+  // Variantes elegantes e diferentes
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, ease: "easeInOut" },
+    },
+  };
+
+  const fadeInDown = {
+    hidden: { opacity: 0, y: -40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, ease: "easeInOut" },
+    },
+  };
+
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -60 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1.1, ease: "easeOut" },
+    },
+  };
+
+  const fadeInRight = {
+    hidden: { opacity: 0, x: 60 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1.1, ease: "easeOut" },
+    },
+  };
 
   return (
     <>
       <Navbar />
+
       <Hero />
-      <Services />
-      <About />
-      <Faq title="Perguntas Frequentes" faqData={faqData} />
-      {/* Linha divisória */}
-      <hr className="border-t border-[#ffffff]" />
-      <Footer />
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInLeft}
+      >
+        <Services />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInRight}
+      >
+        <About />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInDown}
+      >
+        <Faq title="Perguntas Frequentes" faqData={faqData} />
+      </motion.div>
+
+      <motion.hr
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: "easeInOut" }}
+        className="border-t border-[#ffffff]"
+      />
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        <Footer />
+      </motion.div>
     </>
   );
 }

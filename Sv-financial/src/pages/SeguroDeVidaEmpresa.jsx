@@ -11,6 +11,7 @@ import ListSeguro from "../components/ListSeguro";
 import Faq from "../components/Faq";
 import HighlightSection from "../components/HighlightSection";
 import FinancialBenefitsSection from '../components/FinancialSolutions';
+import { motion } from 'framer-motion';
 
 const Planejamento = () => {
     const heroProps = {
@@ -76,62 +77,108 @@ const Planejamento = () => {
         }
     ];
 
+    // Variantes de animação
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    };
+
+    const fadeInRight = {
+        hidden: { opacity: 0, x: 20 },
+        visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    };
+
+    const fadeInLeft = {
+        hidden: { opacity: 0, x: -20 },
+        visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    };
+
+    const staggerContainer = {
+        hidden: { opacity: 1 },
+        visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+    };
 
     return (
         <>
             <Navbar />
 
-            <ProdutoHero {...heroProps} />
-            <ListSeguro title="Benefícios do Seguro" items={benefits} />;
+            {/* Hero Section */}
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+            >
+                <ProdutoHero {...heroProps} />
+            </motion.div>
 
-            <FinancialGoalsSection
-                title="Soluções que sua empresa merece"
-                subtitle="Seguro de vida coletivo que protege seu negócio e valoriza sua equipe"
-                buttonText=""
-                backgroundColor="bg-[#ffffff]"
-                textColor="text-[#000000]"
-                arrowBgColor="bg-gray-400"
-                goals={[
-                    {
-                        icon: <Heart className="text-[#d08c65] w-10 h-10" />,
-                        title: "Do jeito que sua empresa precisa",
-                        description:
-                            "Seguro de vida desenhado especialmente para as necessidades da sua equipe e convenções coletivas."
-                    },
-                    {
-                        icon: <UserCheck className="text-[#d08c65] w-10 h-10" />,
-                        title: "Simples e de fácil manutenção",
-                        description:
-                            "Facilita a gestão de benefícios e mantém seus funcionários motivados e engajados."
-                    },
-                    {
-                        icon: <Layers className="text-[#d08c65] w-10 h-10" />,
-                        title: "Garantia da continuidade do patrimônio",
-                        description:
-                            "Minimiza riscos financeiros e assegura segurança para sócios, herdeiros e a operação da empresa."
-                    },
-                    {
-                        icon: <ShieldCheck className="text-[#d08c65] w-10 h-10" />,
-                        title: "Menos riscos trabalhistas",
-                        description:
-                            "Cumpre com exigências sindicais e convenções coletivas, reduzindo a chance de processos judiciais."
-                    },
-                    {
-                        icon: <Gift className="text-[#d08c65] w-10 h-10" />,
-                        title: "Retenção de talentos",
-                        description:
-                            "Benefício valorizado pelos colaboradores, ajudando na atração e retenção de profissionais."
-                    },
-                    {
-                        icon: <Wallet className="text-[#d08c65] w-10 h-10" />,
-                        title: "Vantagens fiscais",
-                        description:
-                            "Permite dedução de despesas no imposto de renda da empresa, otimizando os resultados financeiros."
-                    }
-                ]}
-            />
+            <ListSeguro title="Benefícios do Seguro" items={benefits} />
 
-            <HighlightSection />
+            {/* Financial Goals Section */}
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+            >
+                <FinancialGoalsSection
+                    title="Soluções que sua empresa merece"
+                    subtitle="Seguro de vida coletivo que protege seu negócio e valoriza sua equipe"
+                    buttonText=""
+                    backgroundColor="bg-[#ffffff]"
+                    textColor="text-[#000000]"
+                    arrowBgColor="bg-gray-400"
+                    goals={[
+                        {
+                            icon: <Heart className="text-[#d08c65] w-10 h-10" />,
+                            title: "Do jeito que sua empresa precisa",
+                            description:
+                                "Seguro de vida desenhado especialmente para as necessidades da sua equipe e convenções coletivas."
+                        },
+                        {
+                            icon: <UserCheck className="text-[#d08c65] w-10 h-10" />,
+                            title: "Simples e de fácil manutenção",
+                            description:
+                                "Facilita a gestão de benefícios e mantém seus funcionários motivados e engajados."
+                        },
+                        {
+                            icon: <Layers className="text-[#d08c65] w-10 h-10" />,
+                            title: "Garantia da continuidade do patrimônio",
+                            description:
+                                "Minimiza riscos financeiros e assegura segurança para sócios, herdeiros e a operação da empresa."
+                        },
+                        {
+                            icon: <ShieldCheck className="text-[#d08c65] w-10 h-10" />,
+                            title: "Menos riscos trabalhistas",
+                            description:
+                                "Cumpre com exigências sindicais e convenções coletivas, reduzindo a chance de processos judiciais."
+                        },
+                        {
+                            icon: <Gift className="text-[#d08c65] w-10 h-10" />,
+                            title: "Retenção de talentos",
+                            description:
+                                "Benefício valorizado pelos colaboradores, ajudando na atração e retenção de profissionais."
+                        },
+                        {
+                            icon: <Wallet className="text-[#d08c65] w-10 h-10" />,
+                            title: "Vantagens fiscais",
+                            description:
+                                "Permite dedução de despesas no imposto de renda da empresa, otimizando os resultados financeiros."
+                        }
+                    ]}
+                />
+            </motion.div>
+
+            {/* Highlight Section */}
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInRight}
+            >
+                <HighlightSection />
+            </motion.div>
+
             <FinancialBenefitsSection
                 title="Por que a SV Financial ?"
                 subtitle="Motivos que fazem a diferença no cuidado com o seu negócio e sua equipe"
@@ -177,13 +224,30 @@ const Planejamento = () => {
                     },
                 ]}
             />
-            <CallToAction
-                title="Proteja seu negócio e valorize sua equipe"
-                subtitle="Com o seguro de vida empresarial certo, sua empresa garante segurança financeira, atratividade e continuidade para os seus colaboradores e sócios."
-                buttonText="Fale com um especialista"
-            />
 
-            <Faq title="Perguntas Frequentes sobre Seguro de Vida" faqData={faqData} />
+            {/* Call to Action */}
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+            >
+                <CallToAction
+                    title="Proteja seu negócio e valorize sua equipe"
+                    subtitle="Com o seguro de vida empresarial certo, sua empresa garante segurança financeira, atratividade e continuidade para os seus colaboradores e sócios."
+                    buttonText="Fale com um especialista"
+                />
+            </motion.div>
+
+            {/* FAQ Section */}
+            <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={staggerContainer}
+            >
+                <Faq title="Perguntas Frequentes sobre Seguro de Vida" faqData={faqData} />
+            </motion.div>
+
             <hr className="border-t border-[#ffffff]" />
             <Footer />
         </>

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileDropdown, setMobileDropdown] = useState(null); // Estado para controlar os submenus no mobile
 
   const handleMouseEnter = (menu) => {
     setActiveDropdown(menu);
@@ -14,6 +15,10 @@ const Navbar = () => {
 
   const handleMouseLeave = () => {
     setActiveDropdown(null);
+  };
+
+  const toggleMobileDropdown = (menu) => {
+    setMobileDropdown((prev) => (prev === menu ? null : menu)); // Alterna entre abrir e fechar o submenu
   };
 
   const dropdownVariants = {
@@ -30,10 +35,12 @@ const Navbar = () => {
     <header className="bg-[#000000] shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center">
-          <img src={logoImg} alt="Logo SV Financial" className="h-20 w-auto" />
+          <Link to="/">
+            <img src={logoImg} alt="Logo SV Financial" className="h-20 w-auto" />
+          </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+
         <div className="lg:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -64,7 +71,17 @@ const Navbar = () => {
                   animate="visible"
                   exit="hidden"
                   variants={dropdownVariants}
-                  className="absolute left-0 top-full bg-[#1f1f1f] shadow-md border-t border-[#d08c65] p-6 mt-0 min-w-[500px] max-w-full"
+                  className="
+                  absolute left-0 top-full 
+                  bg-[#1f1f1f] shadow-md border-t border-[#d08c65] 
+                  p-6 mt-0 
+                  w-full              /* em telas pequenas ocupa 100% */
+                  sm:w-auto           /* a partir de sm volta a usar largura automática */
+                  sm:min-w-[300px]    /* no sm garantir no mínimo 300px */
+                  md:min-w-[400px]    /* no md+ garantir 400px */
+                  max-w-full          /* nunca ultrapassa 100% da viewport */
+                  overflow-auto       /* habilita rolagem se o conteúdo passar */
+                "
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
@@ -100,28 +117,12 @@ const Navbar = () => {
                       <h3 className="font-semibold text-[#d08c65] mb-2">Para Empresas</h3>
                       <ul className="space-y-2">
                         <li>
-                        <Link
+                          <Link
                             to="/seguroDeVidaEmpresa"
                             className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
                           >
                             Seguro de Vida e Acidentes pessoais PME
                           </Link>
-                        </li>
-                        <li>
-                          <a
-                            href="#empresas-odontologico"
-                            className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
-                          >
-                            Planos Odontológicos
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#grandes-empresas"
-                            className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
-                          >
-                            Grandes Empresas
-                          </a>
                         </li>
                       </ul>
                     </div>
@@ -160,7 +161,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
-                        href="https://wa.me/message/HHQ6PYIIOYBAH1"
+                        href="https://wa.me/5531999618881"
                         className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
                       >
                         Fale Conosco
@@ -199,14 +200,6 @@ const Navbar = () => {
                         Nossa História
                       </a>
                     </li>
-                    <li>
-                      <a
-                        href="#valores"
-                        className="block text-[#fff7f8] hover:text-[#d08c65] break-words"
-                      >
-                        Valores
-                      </a>
-                    </li>
                   </ul>
                 </motion.div>
               )}
@@ -214,6 +207,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
+
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -233,32 +227,112 @@ const Navbar = () => {
               &times;
             </button>
             <ul className="mt-20 space-y-6 px-6">
+              {/* Soluções */}
               <li>
-                <a
-                  href="#solucoes"
-                  className="text-[#fff7f8] hover:text-[#d08c65] text-lg font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <button
+                  onClick={() => toggleMobileDropdown("solucoes")}
+                  className="text-[#fff7f8] hover:text-[#d08c65] text-lg font-medium w-full text-left"
                 >
                   Soluções
-                </a>
+                </button>
+                {mobileDropdown === "solucoes" && (
+                  <ul className="pl-4 mt-2 space-y-2">
+                    <li>
+                      <h3 className="text-[#d08c65] font-semibold">Para Você</h3>
+                      <ul className="pl-2 space-y-1">
+                        <li>
+                          <Link
+                            to="/seguroDeVida"
+                            className="block text-[#fff7f8] hover:text-[#d08c65]"
+                          >
+                            Seguro de Vida e Acidentes Pessoais
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/planejamentoPatrimonial"
+                            className="block text-[#fff7f8] hover:text-[#d08c65]"
+                          >
+                            Planejamento Patrimonial e Sucessório
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/planejamento"
+                            className="block text-[#fff7f8] hover:text-[#d08c65]"
+                          >
+                            Planejamento Financeiro
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <h3 className="text-[#d08c65] font-semibold">Para Empresas</h3>
+                      <ul className="pl-2 space-y-1">
+                        <li>
+                          <Link
+                            to="/seguroDeVidaEmpresa"
+                            className="block text-[#fff7f8] hover:text-[#d08c65]"
+                          >
+                            Seguro de Vida e Acidentes Pessoais PME
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                )}
               </li>
+
+              {/* Suporte */}
               <li>
-                <a
-                  href="#suporte"
-                  className="text-[#fff7f8] hover:text-[#d08c65] text-lg font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <button
+                  onClick={() => toggleMobileDropdown("suporte")}
+                  className="text-[#fff7f8] hover:text-[#d08c65] text-lg font-medium w-full text-left"
                 >
                   Suporte
-                </a>
+                </button>
+                {mobileDropdown === "suporte" && (
+                  <ul className="pl-4 mt-2 space-y-2">
+                    <li>
+                      <Link
+                        to="/duvidasFrequentes"
+                        className="block text-[#fff7f8] hover:text-[#d08c65]"
+                      >
+                        Dúvidas Frequentes
+                      </Link>
+                    </li>
+                    <li>
+                      <a
+                        href="https://wa.me/5531999618881"
+                        className="block text-[#fff7f8] hover:text-[#d08c65]"
+                      >
+                        Fale Conosco
+                      </a>
+                    </li>
+                  </ul>
+                )}
               </li>
+
+              {/* Sobre Nós */}
               <li>
-                <a
-                  href="#sobre-nos"
-                  className="text-[#fff7f8] hover:text-[#d08c65] text-lg font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <button
+                  onClick={() => toggleMobileDropdown("sobre-nos")}
+                  className="text-[#fff7f8] hover:text-[#d08c65] text-lg font-medium w-full text-left"
                 >
                   Sobre Nós
-                </a>
+                </button>
+                {mobileDropdown === "sobre-nos" && (
+                  <ul className="pl-4 mt-2 space-y-2">
+                    <li>
+                      <a
+                        href="#historia"
+                        className="block text-[#fff7f8] hover:text-[#d08c65]"
+                      >
+                        Nossa História
+                      </a>
+                    </li>
+                  </ul>
+                )}
               </li>
             </ul>
           </motion.div>
